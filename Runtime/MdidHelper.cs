@@ -9,7 +9,7 @@ namespace PluginSet.Mdid
     public static class MdidHelper
     {
 #if UNITY_EDITOR
-        private static IAndroidCallable _mdidHelperApi;
+        private static IAndroidCallable _mdidHelperApi = null;
         private static IAndroidCallable MdidHelperApi
 #else
         private static AndroidJavaClass _mdidHelperApi;

@@ -30,7 +30,7 @@ namespace PluginSet.Mdid.Editor
             
             var assetsPath = Path.Combine(projectManager.LibraryPath, "src", "main", "assets");
             var supplierConfigFile = Path.Combine(Application.dataPath, "..", buildParams.SupplierConfigFile);
-            if (File.Exists(supplierConfigFile))
+            if (!File.Exists(supplierConfigFile))
                 supplierConfigFile = Path.Combine(Global.GetPackageFullPath("com.pluginset.mdid"), "supplierconfig.json");
             
             Global.CopyFileTo(supplierConfigFile, assetsPath);
