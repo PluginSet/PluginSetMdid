@@ -21,12 +21,18 @@ namespace PluginSet.Mdid
         
         public override void onSuccess(string result)
         {
-            CallbackResult(result);
+            MainThread.Run(delegate
+            {
+                CallbackResult(result);
+            });
         }
 
         public override void onFailed(int code, string message)
         {
-            CallbackResult(null);
+            MainThread.Run(delegate
+            {
+                CallbackResult(null);
+            });
         }
 
         private void CallbackResult(string result)
