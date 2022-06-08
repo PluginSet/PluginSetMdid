@@ -12,6 +12,9 @@ namespace PluginSet.Mdid.Editor
         [OnSyncEditorSetting]
         public static void OnSyncEditorSetting(BuildProcessorContext context)
         {
+            if (!context.BuildTarget.Equals(BuildTarget.Android))
+                return;
+            
             var buildParams = context.BuildChannels.Get<BuildMdidParams>();
             var targetVersion = (int)buildParams.SDKVersion;
             if (targetVersion > (int) OAIDSDKVersion.OAID_SDK_1_0_25)

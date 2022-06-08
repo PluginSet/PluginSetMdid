@@ -11,6 +11,7 @@ namespace PluginSet.Mdid.Editor
     }
     
     [BuildChannelsParams("Mdid", "信通院SDK依赖文件")]
+    [VisibleCaseBoolValue("SupportAndroid", true)]
     public class BuildMdidParams: ScriptableObject
     {
         [Tooltip("选择使用的OAID版本")]

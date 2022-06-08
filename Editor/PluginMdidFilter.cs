@@ -21,6 +21,9 @@ namespace PluginSet.Mdid.Editor
         {
             return delegate(string _, BuildProcessorContext context)
             {
+                if (!context.BuildTarget.Equals(BuildTarget.Android))
+                    return true;
+                
                 var bulidParams = context.BuildChannels.Get<BuildMdidParams>();
                 return bulidParams.SDKVersion != targetVersion;
             };
