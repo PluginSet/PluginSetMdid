@@ -20,8 +20,10 @@ namespace PluginSet.Mdid.Editor
             if (targetVersion > (int) OAIDSDKVersion.OAID_SDK_1_0_25)
                 return;
             
+#if !UNITY_2020_1_OR_NEWER
             if (PlayerSettings.Android.minSdkVersion.CompareTo(AndroidSdkVersions.AndroidApiLevel21) < 0)
                 PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel21;
+#endif
         }
         
         [AndroidProjectModify]
