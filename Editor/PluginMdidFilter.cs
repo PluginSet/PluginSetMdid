@@ -14,6 +14,7 @@ namespace PluginSet.Mdid.Editor
             {
                 {"oaid_sdk_1.0.25.aar", IsTargetVersionNotEquals(OAIDSDKVersion.OAID_SDK_1_0_25)},
                 {"oaid_sdk_1.0.29.aar", IsTargetVersionNotEquals(OAIDSDKVersion.OAID_SDK_1_0_29)},
+                {"oaid_sdk_2.0.0.aar", IsTargetVersionNotEquals(OAIDSDKVersion.OAID_SDK_2_0_0)},
             });
         }
 

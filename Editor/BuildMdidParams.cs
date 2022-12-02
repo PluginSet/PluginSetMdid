@@ -8,6 +8,7 @@ namespace PluginSet.Mdid.Editor
     {
         OAID_SDK_1_0_25 = 10025,
         OAID_SDK_1_0_29 = 10029,
+        OAID_SDK_2_0_0 = 20000,
     }
     
     [BuildChannelsParams("Mdid", "信通院SDK依赖文件")]
@@ -23,7 +24,7 @@ namespace PluginSet.Mdid.Editor
         
         [Tooltip("MDID授权文件")]
         [BrowserFile("Choose THE pem cert file", "pem")]
-        [VisibleCaseEnumValue("SDKVersion", OAIDSDKVersion.OAID_SDK_1_0_29)]
+        [VisibleCaseEnumValue("SDKVersion", OAIDSDKVersion.OAID_SDK_1_0_25, true)]
         public string PemCertFile;
     }
 }
