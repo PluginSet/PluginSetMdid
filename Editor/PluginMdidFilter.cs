@@ -12,7 +12,7 @@ namespace PluginSet.Mdid.Editor
         {
             PluginFilter.RegisterFilter("com.pluginset.mdid/Plugins/Android", new Dictionary<string, Func<string, BuildProcessorContext, bool>>
             {
-                {"MdidLifeCircle.java", IsTargetVersionNotEquals(OAIDSDKVersion.None)},
+                {"MdidLifeCircle.java", IsTargetVersionEquals(OAIDSDKVersion.None)},
                 {"oaid_sdk_1.0.25.aar", IsTargetVersionNotEquals(OAIDSDKVersion.OAID_SDK_1_0_25)},
                 {"oaid_sdk_1.0.29.aar", IsTargetVersionNotEquals(OAIDSDKVersion.OAID_SDK_1_0_29)},
                 {"oaid_sdk_2.0.0.aar", IsTargetVersionNotEquals(OAIDSDKVersion.OAID_SDK_2_0_0)},
