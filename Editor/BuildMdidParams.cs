@@ -6,6 +6,7 @@ namespace PluginSet.Mdid.Editor
 {
     public enum OAIDSDKVersion
     {
+        None = 0,
         OAID_SDK_1_0_25 = 10025,
         OAID_SDK_1_0_29 = 10029,
         OAID_SDK_2_0_0 = 20000,

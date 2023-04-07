@@ -17,6 +17,9 @@ namespace PluginSet.Mdid.Editor
             
             var buildParams = context.BuildChannels.Get<BuildMdidParams>();
             var targetVersion = (int)buildParams.SDKVersion;
+            if (targetVersion <= 0)
+                return;
+            
             if (targetVersion > (int) OAIDSDKVersion.OAID_SDK_1_0_25)
                 return;
             
@@ -29,9 +32,11 @@ namespace PluginSet.Mdid.Editor
         [AndroidProjectModify]
         public static void OnAndroidProjectModify(BuildProcessorContext context, AndroidProjectManager projectManager)
         {
-            projectManager.AddApplicationPlugin("mdid", "com.pluginset.mdid.MdidLifeCircle");
-
             var buildParams = context.BuildChannels.Get<BuildMdidParams>();
+            if ((int)buildParams.SDKVersion <= 0)
+                return;
+            
+            projectManager.AddApplicationPlugin("mdid", "com.pluginset.mdid.MdidLifeCircle");
             
             var assetsPath = Path.Combine(projectManager.LibraryPath, "src", "main", "assets");
             var supplierConfigFile = Path.Combine(Application.dataPath, "..", buildParams.SupplierConfigFile);
