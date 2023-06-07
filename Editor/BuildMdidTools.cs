@@ -59,6 +59,9 @@ namespace PluginSet.Mdid.Editor
                 case OAIDSDKVersion.OAID_SDK_2_0_0:
                     Global.CopyFile(Path.Combine(javaScriptDir, "MdidHelper20000.java"), targetHelperPath, null);
                     break;
+                case OAIDSDKVersion.OAID_SDK_2_2_0:
+                    Global.CopyFile(Path.Combine(javaScriptDir, "MdidHelper20000.java"), targetHelperPath, null);
+                    break;
                 default:
                     break;
             }
