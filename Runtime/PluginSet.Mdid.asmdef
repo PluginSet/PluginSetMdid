@@ -1,7 +1,8 @@
 {
     "name": "PluginSet.Mdid",
     "references": [
-        "PluginSet.Core"
+        "PluginSet.Core",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Android",
