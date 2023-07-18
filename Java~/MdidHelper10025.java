@@ -72,7 +72,18 @@ public class MdidHelper implements IIdentifierListener {
                 break;
         }
     }
-
+    
+    private static MdidHelper _helper;
+    public static void PreInit() {
+        if (_helper == null)
+            _helper = new MdidHelper();
+    }
+    
+    public static void Init(Context context) {
+        PreInit();
+        _helper.init(context);
+    }
+    
     public static String getOaid(int validSdkVersion) {
         if (Build.VERSION.SDK_INT < validSdkVersion)
             return "";
