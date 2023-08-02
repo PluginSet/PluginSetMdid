@@ -28,9 +28,21 @@ namespace PluginSet.Mdid
             }
         }
 
+        private static object Context
+        {
+            get
+            {
+#if UNITY_ANDROID
+                return AndroidHelper.CurrentActivity;
+#else
+                return null;
+#endif
+            }
+        }
+
         public static void InitSdk()
         {
-            MdidHelperApi?.CallStatic("Init", AndroidHelper.CurrentActivity);
+            MdidHelperApi?.CallStatic("Init", Context);
         }
 
         public static string GetOaid(int validSdkVersion = 0)
