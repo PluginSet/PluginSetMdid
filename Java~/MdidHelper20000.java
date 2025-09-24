@@ -33,6 +33,7 @@ public class MdidHelper implements IIdentifierListener {
 
     public void init(Context context)
     {
+        Log.d(TAG, "call MdidHelper init start");
         // 注：请在调用前设置一次后就不再更改，否则可能导致回调丢失、重复等问题
         try {
             MdidSdkHelper.setGlobalTimeout(5000);
@@ -127,15 +128,22 @@ public class MdidHelper implements IIdentifierListener {
     }
     
     public static void Init(Context context) {
+        Log.d(TAG, "call MdidHelper static Init function");
         PreInit();
         _helper.init(context);
     }
 
     public static String getOaid(int validSdkVersion) {
-        if (Build.VERSION.SDK_INT < validSdkVersion)
+        if (Build.VERSION.SDK_INT < validSdkVersion) {
+            Log.d(TAG, "SDK_INT is lower, return empty");
             return "";
+        }
 
-        return mIdSupplier != null ? mIdSupplier.getOAID() : "";
+        if (mIdSupplier == null) {
+            Log.d(TAG, "mIdSupplier is not prepared, return empty");
+            return "";
+        }
+        return mIdSupplier.getOAID();
     }
 
     public static void setSupportOaidCallback(IPluginSetCallback callback)
